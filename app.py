@@ -1,7 +1,8 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 import random
-
 app = Flask(__name__)
+CORS(app)
 
 quotes = [
     {"quote": "The only way to do great work is to love what you do.", "author": "Steve Jobs"},
