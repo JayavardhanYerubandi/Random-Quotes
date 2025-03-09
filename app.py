@@ -71,9 +71,14 @@ quotes = [
     {"quote": "The artist must train not only his eye but also his soul.", "author": "Wassily Kandinsky"},
 ]
 
+@app.route('/')
+def home():
+    return jsonify({"message": "Welcome to Random Quotes API", "endpoint": "/random-quote"})
+
 @app.route('/random-quote', methods=['GET'])
 def get_random_quote():
     return jsonify(random.choice(quotes))
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+    import os
+    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)))
