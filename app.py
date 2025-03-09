@@ -71,11 +71,7 @@ quotes = [
     {"quote": "The artist must train not only his eye but also his soul.", "author": "Wassily Kandinsky"},
 ]
 
-@app.route('/')
-def home():
-    return jsonify({"message": "Welcome to Random Quotes API", "endpoint": "/random-quote"})
-
-@app.route('/random-quote', methods=['GET'])
+@app.route('/', methods=['GET'])
 def get_random_quote():
     return jsonify(random.choice(quotes))
 
